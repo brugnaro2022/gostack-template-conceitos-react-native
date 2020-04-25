@@ -48,7 +48,7 @@ jest.mock(
 describe("Likes", () => {
   it("should add a like to the like counter of the repository", async () => {
     const { getByTestId } = render(<App />);
-
+    
     apiMock
       .onPost(`repositories/${repositoryId}/like`)
       .reply(200, {
@@ -63,9 +63,9 @@ describe("Likes", () => {
 
     fireEvent.press(getByTestId(`like-button-${repositoryId}`));
 
-    await actWait();
+    await actWait();  
 
-    expect(getByTestId(`repository-likes-${repositoryId}`)).toHaveTextContent("1 curtida");
+    expect(getByTestId(`repository-likes-${repositoryId}`)).toHaveTextContent('1 curtida');
 
     apiMock
       .onPost(`repositories/${repositoryId}/like`)
